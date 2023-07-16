@@ -1,0 +1,516 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --color-1: #000;
+  --color-2: #fff;
+  --color-3: #38c0ff;
+  --color-4: #20b6fc;
+  --color-5: #00aaf8;
+  --color-6: #aaaaaa;
+  --color-7: #c9c9c9;
+  --color-8: #ff0000;
+  --color-9: #ff0000ce;
+  --color-10: #ff0000a2;
+  --border-input: 0.1rem solid rgba(0, 0, 0, 0.5);
+  --border-input-error: 0.1rem solid var(--color-8);
+  --box-shadow: 0rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.2);
+  --btn-padding: clamp(0.5rem, 4vw, 1rem) clamp(1rem, 4vw, 2rem);
+  --form-padding: clamp(1rem, 4vw, 2rem);
+  --transition-1: all 0.2s linear;
+}
+
+body {
+  width: 100vw;
+  min-width: 335px;
+  overflow-x: hidden;
+}
+
+.App {
+  min-width: 335px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-1);
+}
+.header {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: var(--color-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--btn-padding);
+  box-shadow: var(--box-shadow);
+}
+.header .logo {
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--color-3);
+  white-space: nowrap;
+  flex-grow: 1;
+}
+.dash_header {
+  position: relative;
+}
+.dash_header .nav-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn_login {
+  padding: 0.5rem 1rem;
+  background: var(--color-3);
+  font-weight: 600;
+  color: var(--color-2);
+}
+.btn_login:hover {
+  background: var(--color-4);
+}
+.btn_login:active {
+  background: var(--color-5);
+}
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90vh;
+  padding: var(--btn-padding);
+  gap: 1rem;
+}
+.welcome .welcome_content {
+  width: 50%;
+}
+.welcome .welcome_image {
+  width: 50%;
+  aspect-ratio: 1;
+}
+.welcome .welcome_content h1 {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+.welcome .welcome_content p {
+  color: var(--color-6);
+  line-height: 2rem;
+  font-size: clamp(0.9rem, 4vw, 1rem);
+}
+
+.login_form {
+  width: 20rem;
+  margin: 5rem auto;
+  padding: var(--form-padding);
+  box-shadow: var(--box-shadow);
+}
+.login_form h1 {
+  color: var(--color-3);
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+.input_field {
+  position: relative;
+  margin: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.trust_device {
+  display: flex;
+  gap: clamp(0.3rem, 4vw, 0.5rem);
+  font-size: (0.9rem, 4vw, 1rem);
+  color: var(--color-6);
+}
+
+.errMessage {
+  color: var(--color-8);
+  position: absolute;
+  bottom: -1.5rem;
+  white-space: nowrap;
+  font-size: clamp(0.9rem, 4vw, 1rem);
+}
+
+.login_form .username label,
+.password label,
+.input_field label {
+  font-size: clamp(1rem, 4vw, 1.1rem);
+  color: var(--color-6);
+}
+input.errInput {
+  border: var(--border-input-error);
+}
+input,
+select {
+  padding: clamp(0.3rem, 4vw, 0.5rem);
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  outline: 0;
+  border: var(--border-input);
+}
+.login_form button,
+.note_add button,
+.user_add button {
+  padding: var(--btn-padding);
+  width: 100%;
+  color: var(--color-2);
+  font-size: clamp(1rem, 4vw, 1.1rem);
+  font-weight: 600;
+  background: var(--color-3);
+  border: none;
+  cursor: pointer;
+  margin: 1rem 0rem;
+}
+
+.public_footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-6);
+  text-align: center;
+  padding: 0.5rem;
+}
+.public_footer a {
+  color: var(--color-1);
+  opacity: 0.5;
+}
+
+.dash_header nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.dash_header nav ul a {
+  color: var(--color-6);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.dash_header nav ul a:hover {
+  color: var(--color-3);
+}
+
+.dash_header nav ul a.active {
+  color: var(--color-3);
+}
+.dash_header .user_header {
+  display: flex;
+  align-items: center;
+}
+
+.dash_header .user_header img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+}
+
+.dash_welcome {
+  padding: var(--form-padding);
+  margin: 4rem 0rem;
+  text-align: center;
+  min-width: 335px;
+}
+
+.dash_welcome div h1 {
+  color: var(--color-6);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+.dash_welcome div h1 span {
+  color: var(--color-3);
+  text-transform: uppercase;
+}
+
+.dash_welcome p:nth-child(2) {
+  color: var(--color-6);
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+}
+
+.dash_welcome .dateTime {
+  padding: var(--form-padding);
+  background: var(--color-4);
+  margin: 1rem 0rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 500;
+  display: inline-block;
+  color: var(--color-2);
+  box-shadow: var(--box-shadow);
+}
+
+.dash_welcome h1 {
+  font-size: 3rem;
+}
+.notelist,
+.userlist {
+  z-index: 0;
+  padding: var(--form-padding);
+}
+
+.notelist_header,
+.userlist_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notelist .table_container,
+.userlist .table_container {
+  min-width: 100%;
+  overflow: auto;
+}
+
+.notelist h1,
+.note_add h1,
+.note_view h1,
+.userlist h1,
+.user_add h1,
+.user_view h1 {
+  font-size: clamp(1.1rem, 4vw, 1.7rem);
+  color: var(--color-6);
+}
+
+.note_add h1,
+.note_view h1,
+.user_add h1,
+.user_view h1 {
+  text-align: center;
+}
+
+button {
+  background: var(--color-3);
+  border: 0;
+  outline: 0;
+  padding: clamp(0.25rem, 4vw, 0.5rem) clamp(0.5rem, 4vw, 1rem);
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-2);
+}
+
+button,
+a {
+  transition: var(--transition-1);
+}
+
+button:hover {
+  background: var(--color-4);
+}
+
+button:active {
+  background: var(--color-5);
+}
+
+.notelist table,
+.userlist table {
+  border-collapse: collapse;
+  box-shadow: var(--box-shadow);
+  margin: 1rem 0rem;
+  min-width: 100%;
+}
+
+.notelist table thead,
+.userlist table thead {
+  background: var(--color-3);
+}
+
+.notelist table thead th,
+.userlist table thead th {
+  white-space: nowrap;
+  text-align: left;
+}
+
+.notelist table thead th,
+.notelist table tbody td,
+.userlist table thead th,
+.userlist table tbody td {
+  padding: 1rem;
+  border: 0.1rem solid var(--color-6);
+}
+
+.notelist table tbody td,
+.userlist table tbody td {
+  color: var(--color-6);
+}
+.notelist table tbody td:last-child,
+.userlist table tbody td:last-child {
+  text-align: center;
+}
+
+.notelist table tbody tr:hover,
+.userlist table tbody tr:hover {
+  background: var(--color-7);
+}
+
+.notelist table tfoot tr td,
+.userlist table tfoot tr td {
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--color-6);
+}
+.notelist table tfoot tr td span,
+.userlist table tfoot tr td span {
+  color: var(--color-3);
+  margin: 0 0.5rem;
+}
+
+.notelist table tfoot tr td div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Add Note & View Note*/
+.note_add,
+.note_view,
+.user_add,
+.user_view {
+  padding: var(--form-padding);
+  box-shadow: var(--box-shadow);
+  width: 50vw;
+  min-width: 20rem;
+  margin: 4rem auto;
+}
+.note_view_btns,
+.user_view_btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.note_view_btns button,
+.user_view_btns button {
+  width: 50%;
+}
+
+.note_view_delete_btn,
+.user_view_delete_btn,
+.btn_logout {
+  background: var(--color-8);
+}
+
+.note_view_delete_btn:hover,
+.user_view_delete_btn:hover,
+.btn_logout:hover {
+  background-color: var(--color-9);
+}
+.note_view_delete_btn:active,
+.user_view_delete_btn:active,
+.btn_logout:active {
+  background-color: var(--color-10);
+}
+.dash_footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-6);
+  padding: var(--btn-padding);
+  color: var(--color-2);
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+}
+
+.dash_footer p {
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  font-weight: 400;
+}
+
+.dash_footer p span {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Loading animation */
+.dots {
+  width: 4.5px;
+  margin: 5rem auto;
+  height: 4.5px;
+  border-radius: 50%;
+  color: var(--color-3);
+  box-shadow: 21.3px 0 0 7.8px, 42.6px 0 0 3.4px, 63.900000000000006px 0 0 0;
+  transform: translateX(-42.6px);
+  animation: dots 0.5s infinite alternate linear;
+}
+
+@keyframes dots {
+  50% {
+    box-shadow: 21.3px 0 0 3.4px, 42.6px 0 0 7.8px,
+      63.900000000000006px 0 0 3.4px;
+  }
+
+  100% {
+    box-shadow: 21.3px 0 0 0, 42.6px 0 0 3.4px, 63.900000000000006px 0 0 7.8px;
+  }
+}
+
+.btn_nav {
+  float: right;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  position: absolute;
+  right: 1.9rem;
+  display: none;
+  background: none;
+}
+
+.btn_nav:hover,
+.btn_nav:focus {
+  background: none;
+}
+
+.btn_nav::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.3rem;
+  background: var(--color-3);
+}
+.btn_nav::before {
+  content: "";
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.3rem;
+  background: var(--color-3);
+}
+
+@media only screen and (max-width: 575px) {
+  .nav-container {
+    position: absolute;
+    top: 100%;
+    width: 10rem;
+    padding: 2rem;
+    right: 1.9rem;
+    flex-direction: column;
+    background: var(--color-2);
+    box-shadow: var(--box-shadow);
+    display: none;
+  }
+  .dash_header nav ul {
+    flex-direction: column;
+  }
+  .dash_header nav,
+  .dash_header .btn_logout {
+    display: block;
+  }
+  .dash_header {
+    flex-grow: none;
+  }
+  .btn_nav {
+    display: block;
+  }
+}
